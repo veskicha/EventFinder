@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* Apply Montserrat globally */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Main container with flexbox layout */
+.auth-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left side (Login form) */
+.auth-left {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 0 20px;
+}
+
+/* Right side (Sign up prompt) */
+.auth-right {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pseudo-element with image overlaid by a semi-transparent #28b498 color */
+.auth-right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(40, 180, 152, 0.73), rgba(40, 180, 152, 0.73)),
+    url('1.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+
+
+/* Logo container */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/* Logo image styling */
+.logo img {
+    max-width: 90px;  /* Adjust size as needed */
+    height: auto;
+}
+
+
+/* Auth box styling */
+.auth-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    text-align: center;
+}
+.auth-box h2{
+    font-size: 58px;
+    color: #202121;
+}
+
+/* Updated Inputs with an underline */
+.auth-box input {
+    width: 65%;
+    padding: 15px;
+    margin: 20px 0;
+    border: none;
+    border-bottom: 1px solid #28b498;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #918f8f;
+    background: transparent;
+}
+
+/* Remove default focus outline and keep the underline */
+.auth-box input:focus {
+    outline: none;
+    border-bottom: 1px solid #1f8f7f;
+    transition: 0.5s;
+}
+
+
+
+/* Login button */
+.auth-box button {
+    width: 36%;
+    padding: 17px;
+    border: none;
+    border-radius: 20px;
+    background-color: #28b498;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 500;
+
+}
+
+.auth-box button:hover {
+    background-color: #1f8f7f;
+    transition: 0.5s;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    min-height: 20px; /* Reserve space for the error message */
+}
+
+
+/* Right-side signup text */
+.signup-text h3 {
+    text-align: center;
+    font-size: 58px;
+    font-weight: bold;
+}
+
+.signup-text p {
+    text-align: center;
+    font-size: 23px;
+    margin-top: 10px;
+}
+
+.signup-button {
+    width: 36%;
+    padding: 17px;
+    border: none;
+    background-color: white;
+    color: #202121;
+    font-size: 17px;
+    border-radius: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+
+}
+
+.signup-button:hover {
+    background-color: #ddd;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover */
+    transition: 0.5s;
+}
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.auth-box a {
+    margin-top: 20px;
+    color: #28b498;
+    text-decoration: none;
+    font-weight: bold;
+}
+

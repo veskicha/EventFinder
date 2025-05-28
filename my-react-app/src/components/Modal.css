@@ -1,0 +1,366 @@
+/* Modal Overlay (semi-transparent background) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Modal Content (the white card) */
+.add-event{
+    background-color: #fff;
+    width: 550px;
+    max-width: 90%;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-align: center;
+    position: relative;
+}
+
+/* Title & Subtitle */
+.form-title {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-subtitle {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 40px;
+}
+
+/* The event form itself */
+.event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Rows that group multiple fields side by side */
+.form-group-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* so it wraps on smaller screens */
+    margin-bottom:10px;
+}
+
+
+
+.form-group {
+    flex: 1; /* each group shares space in the row */
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* labels and placeholders left-aligned */
+}
+
+.form-group label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group Select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+}
+
+textarea{
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+/* Buttons at the bottom */
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.check-address-row input{
+    width: 50%;
+    margin-right: 5%;
+}
+
+.check-address-row button{
+    background-color: #28b498;
+    color: #fff;
+    padding: 6px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.submit-btn {
+    background-color: #28b498; /* your primary color */
+    color: #fff;
+    padding: 10px 25px;
+    font-size: 15px;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #1f8f7f;
+}
+
+.cancel-btn {
+    background-color: #B4284E;
+    color: #fff;
+    padding: 10px 25px;
+    font-size: 15px;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #b51c45;
+}
+
+/* Container for Home with sidebar and main content */
+.home-container {
+    display: flex;
+}
+
+/* Sidebar container styling */
+.sidebar {
+    position: absolute;
+    top: 93%;
+    left: 0;
+    width: 7%; /* initial narrow width */
+    height: 20%;
+    background-color: #28b498; /* primary color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    z-index: 1000;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    transition: width 0.3s ease;
+}
+
+.sidebar:hover {
+    width: 13%; /* expanded width on hover */
+}
+
+/* Sidebar item container */
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+/* Fixed container for the icon */
+.icon-container {
+    width: 40px;
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sidebar button styling */
+.sidebar-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+/* Label styling, initially hidden */
+.sidebar-label {
+    opacity: 0;
+    margin-left: 10px;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+    font-size: 0px;
+    color: white;
+}
+
+/* Reveal labels on hover */
+.sidebar:hover .sidebar-label {
+    opacity: 1;
+    font-size: 16px;
+}
+.sidebar-item:hover .sidebar-label {
+    font-weight: bold;
+}
+
+/* For all input placeholders */
+input::placeholder {
+    color: #888;
+}
+
+/* Vendor prefixes for wider browser support */
+input::-webkit-input-placeholder {
+    color: #888;
+}
+input:-ms-input-placeholder {
+    color: #888;
+}
+input::-ms-input-placeholder {
+    color: #888;
+}
+
+/* For select elements, you can style a disabled option as a placeholder */
+select option[disabled] {
+    color: #888;
+}
+
+/* Optional: If you want the select itself to show a placeholder style when no value is chosen */
+select {
+    color: #888;
+}
+
+/* When a valid option is selected, you might want to change the text color */
+select:not(:placeholder-shown) {
+    color: #787878; /* your desired text color */
+}
+
+.react-datepicker__day--selected{
+    background-color: #28b498 !important;
+}
+
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {
+    background-color: #28b498 !important;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item{
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.css-1ub9r0q-control{
+    border-radius: 10px !important;
+    border-bottom: 1px solid #ccc !important;
+    border-top: 1px solid #fff !important;
+    border-left: 1px solid #fff !important;
+    border-right: 1px solid #fff !important;
+}
+
+/* Custom InfoWindow container */
+.custom-info-window {
+    display: flex;
+    width: 250px;
+    height: 100px;
+}
+
+/* Left side: fixed-width image */
+.info-window-left {
+    flex: 0 0 100px;
+    height: 100%;
+}
+
+.info-window-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+/* Right side: text and close button */
+.info-window-right {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+/* Custom close button */
+.info-window-close {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    background: transparent;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    color: #28b498;
+    font-weight: bold;
+}
+
+/* Text container centered horizontally and vertically */
+.info-window-text {
+    text-align: center;
+    color: #333;
+}
+
+/* Optional: Style headings and paragraphs inside info window */
+.info-window-text h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.info-window-text p {
+    margin: 5px 0 0;
+    font-size: 11px;
+}
+
+/* Hide the default close button */
+.gm-style-iw button.gm-ui-hover-effect {
+    display: none !important;
+}
+
+/* Remove extra margin/padding from the InfoWindow top container */
+.gm-style-iw-d,
+.gm-style-iw-c {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Remove scrollbars and fix sizing in the InfoWindow */
+.gm-style-iw-d {
+    overflow: visible !important;
+    max-height: none !important;
+}
+
+/* Optional: Prevent container clipping */
+.gm-style-iw-c {
+    overflow: visible !important;
+    max-height: none !important;
+    padding-left: 0px !important;
+    border-radius: 15px !important;
+}
+
+.gm-style .gm-style-iw-tc,
+.gm-style-iw-chr{
+    display: none;
+}

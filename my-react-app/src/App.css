@@ -1,0 +1,31 @@
+.App {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  text-align: center;
+}
+
+.filter-container {
+  margin: 20px 0;
+}
+
+.filter-container label {
+  margin-right: 10px;
+}
+
+.event-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.event-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 200px;
+  text-align: left;
+}
+
+.event-card h3 {
+  margin: 0;
+}

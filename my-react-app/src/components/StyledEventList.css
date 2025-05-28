@@ -1,0 +1,132 @@
+/* Grid container for all event cards */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    margin-right: 15%;
+}
+
+/* Individual event card */
+.event-card {
+    position: relative;
+    border-radius: 15px;
+    color: #fff;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; /* important for overlay clipping */
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Semi-transparent black overlay on the bottom half */
+.event-card::after {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%; /* covers bottom half */
+    background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.8) 100%
+    );
+    z-index: 1;
+    transition: background 0.3s ease, height 0.3s ease;
+}
+
+/* The content goes above the overlay */
+.event-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Date badge (top-left corner) */
+.event-date {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0,0,0,0.5);
+    padding: 5px 10px;
+    border-radius: 8px;
+    text-align: center;
+    z-index: 3; /* above overlay */
+}
+
+/* Day and month in the date badge */
+.event-day {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.event-month {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/* Category label, event name, location, etc. */
+.event-category,
+.event-name,
+.event-location,
+.event-time {
+    white-space: nowrap;         /* single line */
+    overflow: hidden;            /* hide overflow */
+    text-overflow: ellipsis;     /* show "..." */
+    display: block;              /* ensure ellipsis works */
+    margin-bottom: 5px;
+}
+
+.event-category {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.event-name {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.event-location,
+.event-time {
+    font-size: 14px;
+}
+
+.event-description {
+    transform: translate(0%, -130px);
+    text-align: center;
+    z-index: 3;            /* above everything */
+    display: none;         /* hidden by default */
+    color: #fff;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.event-card:hover::after {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    cursor: grab;
+}
+
+.event-card:hover .event-description {
+    display: block;
+    opacity: 1;
+    color: white;
+}
+
+.event-card:hover .event-category,
+.event-card:hover .event-date,
+.event-card:hover .event-name,
+.event-card:hover .event-location,
+.event-card:hover .event-time {
+    display: none;
+}
